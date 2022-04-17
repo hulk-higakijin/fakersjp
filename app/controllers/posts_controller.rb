@@ -10,10 +10,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   def show; end
 
-  # GET /posts/new
-  def new
-    @post = Post.new
-  end
 
   # GET /posts/1/edit
   def edit; end
@@ -24,9 +20,11 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
 
     if @post.save
-      # redirect_to @post, notice: 'Post was successfully created.'
+      @new_post = Post.new
     else
-      render :new, status: :unprocessable_entity
+      @post = Post.all.reverse
+      @post = Post.new
+      render :index, status: :unprocessable_entity
     end
   end
 

@@ -1,42 +1,68 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= form_with(model: post) do |f| %>
+  <div class="flex">
+    <div class="m-2 w-10 py-1">
+      <img class="inline-block h-10 w-10 rounded-full"
+        src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="">
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
+    <div class="flex-1 px-2 pt-2 mt-2">
+      <%# <textarea class=" bg-transparent text-white font-medium text-lg w-full p-1 border-none" style="outline: none; resize: none;" rows="2" cols="50"
+        placeholder="What's happening?"></textarea> %>
+      <%= f.text_area :content, class: "bg-transparent text-white font-medium text-lg w-full p-1 border-none", style: "outline: none; resize: none;", rows: "2", cols: "50", placeholder: "What's happening?" %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <!--middle creat tweet below icons-->
+  <div class="flex">
+    <div class="w-10"></div>
+    <div class="w-64 px-2">
+      <div class="flex items-center">
+        <div class="flex-1 text-center px-1 py-1 m-2">
+          <a href="#"
+            class="mt-1 group flex items-center text-blue-400 px-2 py-2 text-base leading-6 font-medium rounded-full hover:bg-gray-800 hover:text-blue-300">
+            <svg class="text-center h-7 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+              </path>
+            </svg>
+          </a>
+        </div>
+        <div class="flex-1 text-center py-2 m-2">
+          <a href="#"
+            class="mt-1 group flex items-center text-blue-400 px-2 py-2 text-base leading-6 font-medium rounded-full hover:bg-gray-800 hover:text-blue-300">
+            <svg class="text-center h-7 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+              </path>
+              <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="flex-1 text-center py-2 m-2">
+          <a href="#"
+            class="mt-1 group flex items-center text-blue-400 px-2 py-2 text-base leading-6 font-medium rounded-full hover:bg-gray-800 hover:text-blue-300">
+            <svg class="text-center h-7 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+              </path>
+            </svg>
+          </a>
+        </div>
+        <div class="flex-1 text-center py-2 m-2">
+          <a href="#"
+            class="mt-1 group flex items-center text-blue-400 px-2 py-2 text-base leading-6 font-medium rounded-full hover:bg-gray-800 hover:text-blue-300">
+            <svg class="text-center h-7 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="flex-1">
+      <%= f.submit '騙す', class: "bg-blue-400 hover:bg-blue-500 mt-5 text-white font-bold py-2 px-8 rounded-full mr-8 float-right cursor-pointer" %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :post_likes_count, style: "display: block" %>
-    <%= form.number_field :post_likes_count %>
-  </div>
-
-  <div>
-    <%= form.label :reposts_count, style: "display: block" %>
-    <%= form.number_field :reposts_count %>
-  </div>
-
-  <div>
-    <%= form.label :comments_count, style: "display: block" %>
-    <%= form.number_field :comments_count %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <hr class="border-gray-800 border-4">
 <% end %>
