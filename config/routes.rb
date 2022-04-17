@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :posts
+  resources :users
 end

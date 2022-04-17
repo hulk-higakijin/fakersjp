@@ -3,13 +3,12 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all.reverse
+    @posts = Post.eager_load(:user).reverse
     @post = Post.new
   end
 
   # GET /posts/1
   def show; end
-
 
   # GET /posts/1/edit
   def edit; end
@@ -20,9 +19,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     @new_post = Post.new
 
-    if @post.save
-
-    else
+    unless @post.save
       @posts = Post.all.reverse
       render :index, status: :unprocessable_entity
     end

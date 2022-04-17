@@ -64,6 +64,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'web-console'
+  gem 'bullet'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -74,7 +75,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'rspec-rails'
-  gem "factory_bot_rails"
+  gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rspec-rails'
 end
