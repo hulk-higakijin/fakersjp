@@ -1,0 +1,19 @@
+<div class="bg-gray-700 ">
+  <div class="flex min-h-screen items-center justify-center">
+    <div class="min-h-1/2 bg-gray-900  border border-gray-900 rounded-2xl">
+      <%= render 'svg/cancel', { link: root_path } %>
+      <%= form_with(model: resource, scope: resource_name, url: session_path(resource_name), local: true, data: { turbo: false }) do |f| %>
+        <div
+          class="mx-4 sm:mx-12 md:mx-16 lg:mx-28 mx-auto flex items-center space-y-4 pb-16 font-semibold text-gray-500 flex-col">
+          <%= render 'svg/comet', height: '75' %>
+          <h1 class="text-white text-2xl">fackersにログイン</h1>
+          <%= f.email_field :email, placeholder: 'email', size: 30, class: "p-2 bg-gray-900 rounded-md border border-gray-700 focus:border-blue-700 text-white text-sm" %>
+          <%= f.password_field :password, placeholder: 'password', size: 30, class: "p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-blue-700 text-white text-sm" %>
+          <p class="text-red-500 alert w-60"><%= alert %></p>
+          <%= f.submit 'ログイン', class: "w-full p-2 bg-gray-50 rounded-full font-bold text-gray-900 border border-gray-700 cursor-pointer" %>
+          <p class="text-xs">アカウントをお持ちでない方は<%= link_to '登録', new_user_registration_path, class: 'text-blue-700' %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
