@@ -1,32 +1,27 @@
 <div id="<%= dom_id post %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Content:</strong>
+  <p>
+    <strong>Content:</strong>
     <%= post.content %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
+  <p>
+    <strong>User:</strong>
     <%= post.user_id %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Post likes count:</strong>
+  <p>
+    <strong>Post likes count:</strong>
     <%= post.post_likes_count %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Reposts count:</strong>
+  <p>
+    <strong>Reposts count:</strong>
     <%= post.reposts_count %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Comments count:</strong>
+  <p>
+    <strong>Comments count:</strong>
     <%= post.comments_count %>
   </p>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this post", post, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this post', edit_post_path(post), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
 </div>
