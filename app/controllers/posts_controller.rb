@@ -18,12 +18,12 @@ class PostsController < ApplicationController
   def create
     # binding.pry
     @post = current_user.posts.new(post_params)
+    @new_post = Post.new
 
     if @post.save
-      @new_post = Post.new
+
     else
-      @post = Post.all.reverse
-      @post = Post.new
+      @posts = Post.all.reverse
       render :index, status: :unprocessable_entity
     end
   end
