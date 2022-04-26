@@ -6,7 +6,7 @@
     <div>
       <div class="flex justify-start">
         <div class="px-4 py-2 mx-2">
-          <%= link_to :back, class: "text-2xl font-medium rounded-full text-blue-400 hover:bg-gray-800 hover:text-blue-300 float-right" do %>
+          <%= link_to posts_path, class: "text-2xl font-medium rounded-full text-blue-400 hover:bg-gray-800 hover:text-blue-300 float-right" do %>
             <svg class="m-2 h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
               <g>
                 <path
@@ -43,16 +43,20 @@
             </div>
           </div>
           <!-- Follow Button -->
-          <div class="flex flex-col text-right">
-            <%= link_to 'プロフィールを編集', edit_user_path(@user), class: "flex justify-center  max-h-max whitespace-nowrap focus:outline-none  focus:ring  rounded max-w-max border bg-transparent border-blue-500 text-blue-500 hover:border-blue-800 hover:border-blue-800 flex items-center hover:shadow-lg font-bold py-2 px-4 rounded-full mr-0 ml-auto" %>
-          </div>
+          <% if current_user.public_uid === @user.public_uid %>
+            <div class="flex flex-col text-right">
+              <%= link_to 'プロフィールを編集', edit_user_path(@user.public_uid), class: "text-sm flex justify-center max-h-max whitespace-nowrap rounded-xl max-w-max border bg-transparent border-gray-600 text-white items-center font-bold px-4 py-2 rounded-full mr-0 ml-auto" %>
+            </div>
+          <% else %>
+            <p class="text-red-500">フォロー</p>
+          <% end %>
         </div>
         <!-- Profile info -->
         <div class="space-y-1 justify-center w-full mt-3 ml-3">
           <!-- User basic-->
           <div>
             <h2 class="text-xl leading-6 font-bold text-white"><%= @user.name %></h2>
-            <p class="text-sm leading-5 font-medium text-gray-600"><%= @user.public_uid %></p>
+            <p class="text-sm leading-5 font-medium text-gray-600">@<%= @user.public_uid %></p>
           </div>
           <!-- Description and others -->
           <div class="mt-3">

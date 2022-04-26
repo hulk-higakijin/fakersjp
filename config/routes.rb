@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :posts
-  resources :users
+  resources :users, param: :public_uid
 end
