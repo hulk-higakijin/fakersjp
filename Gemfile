@@ -50,8 +50,8 @@ gem 'bootsnap', require: false
 
 gem 'devise'
 gem 'devise-i18n'
-
 gem 'public_uid'
+gem "image_processing", ">= 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -61,7 +61,6 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'bullet'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'web-console'

@@ -13,4 +13,6 @@ class User < ApplicationRecord
 
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
   validates :public_uid, format: { with: VALID_PASSWORD_REGEX, allow_nil: true }, length: { maximum: 20 }, uniqueness: true
+
+  has_one_attached :avatar
 end

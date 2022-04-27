@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @new_post = Post.new
 
     unless @post.save
-      @posts = Post.all.reverse
+      @posts = Post.eager_load(:user).reverse
       render :index, status: :unprocessable_entity
     end
   end
