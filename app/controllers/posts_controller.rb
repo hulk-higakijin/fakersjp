@@ -18,8 +18,10 @@ class PostsController < ApplicationController
     # binding.pry
     @post = current_user.posts.new(post_params)
     @new_post = Post.new
-
-    unless @post.save
+    if @post.save
+      ## これいる？
+      p '投稿が完了しました。'
+    else
       @posts = Post.eager_load(:user).reverse
       render :index, status: :unprocessable_entity
     end

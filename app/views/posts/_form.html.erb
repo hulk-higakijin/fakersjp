@@ -7,7 +7,7 @@
     <div class="flex-1 px-2 pt-2 mt-2">
       <%# <textarea class=" bg-transparent text-white font-medium text-lg w-full p-1 border-none" style="outline: none; resize: none;" rows="2" cols="50"
         placeholder="What's happening?"></textarea> %>
-      <%= f.text_area :content, class: "bg-transparent text-white font-medium text-lg w-full p-1 border-none", style: "outline: none; resize: none;", rows: "2", cols: "50", placeholder: "Let's be a faker!", required: true %>
+      <%= f.text_area :content, class: "bg-transparent text-white font-medium text-lg w-full p-1 border-none focus:ring-0", style: "outline: none; resize: none;", rows: "2", cols: "50", placeholder: "Let's be a faker!", required: true %>
       <% if @post.errors.any? %>
         <% @post.errors.full_messages.each do |e| %>
           <p class="text-red-500"><%= e %></p>
